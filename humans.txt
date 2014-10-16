@@ -1,0 +1,29 @@
+/* TEAM */
+	Book author: Jeffrey Zeldman
+	Email: jeffrey at zeldman dot com
+	Twitter: @zeldman
+	Website: zeldman.com
+	Lives: New York, NY
+	
+	Guy who made this into a website: Dale Cruse
+	Email: dale dot cruse at gmail dot com
+	Twitter: @dalecruse
+	Website: about.me/dalejcruse
+	Lives: South Boston, MA
+
+/* THANKS TO */
+	Paul Irish for HTML5 Boilerplate
+	Eric Meyer for CSS Reset
+	Google for Analytics
+	Archive.org for reminding us what websites used to look like
+	Fonts.com for the best damned collection of web fonts
+	Remy Sharp for the HTML5 Shiv
+	Liz Castro for the HTML entities in the footer
+	Tim Murtaugh for his quick QA work
+	You for reading
+
+/* SITE */
+	Language: English
+	Doctype: HTML5
+	IDE: Coda, Photoshop, ImageOptim, Smaller
+	Best viewed in whatever web browser you have.

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>The Joy of JavaScript | Taking Your Talent to the Web</title>
+		<meta name="description" content="Jeffrey Zeldman's old-school 'Taking Your Talent to the Web' reimagined as a modern web reading experience.">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="Shortcut Icon" href="img/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="css/master.css">
+		<script src="//fast.fonts.com/jsapi/1c316db6-32b0-43e2-99e2-1f7b4bccb5f9.js"></script>
+		<link rel="author" href="humans.txt">
+		<script>
+			var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-24079777-4"]);_gaq.push(["_trackPageview"]);(function(){var ga=document.createElement("script");ga.type="text/javascript";ga.async=true;ga.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga,s)})();
+		</script>
+	</head>
+	<body class="responsive">
+		<div id="page-wrap">	
+			<header id="page-header"><img src="img/title.jpg" alt="Taking Your Talent to the Web"></header>
+			<div id="page-content">
+				<div class="container">
+					<article role="main">
+						<h4>chapter 11</h4>
+						<h1>The Joy of JavaScript</h1>
+						<p>WE’VE SAID ALL ALONG that the Web is not print. If you’ve harbored lingering doubts on that score, this chapter should clear them up pronto. If this chapter does not clear them up, try club soda and a semiabrasive cloth.</p>
+						<p>A primary reason the Web is not print is that websites don’t just sit there; they do things—responding to clicks of the mouse, hovering motions, and other user activities. JavaScript is behind much of that interactivity. In JavaScript parlance, user actions such as mouse clicks are called <em>events</em>, and you handle them via <em>event handlers</em> ("onClick," for example). Similarly, in JavaScript, the components of a web page, such as <abbr title="Graphics Interchange Format">GIF</abbr> images and form buttons, are considered <em>objects</em>. Web pages are known as <em>documents</em>, and the whole shebang is held together by a Document Object Model (<abbr title="Document Object Model">DOM</abbr>).</p>
+						<p>See, it’s not that hard, and you are learning already.</p>
+						<p>In this chapter you’ll find out what JavaScript is, where it came from, how it brings websites to life, where to learn all about it, and how to begin using it even <em>before</em> you learn all about it.</p>
+						<p>You’ll also learn how to communicate desired JavaScript functions to the developers on your team, who will handle the heavy scripting when it is needed. If you freelance or work in a graphic design shop instead of a web agency, you’ll learn how to communicate with freelance programmers. But before you can begin doing any of that, a few basics are in order.</p>
+						<h2>What Is This Thing Called JavaScript?</h2>
+						<p>JavaScript is a programming language designed specifically to work in web browsers. Its purpose is to bring interactivity to sites. Though JavaScript is powerful and complex, it is relatively easy to learn—at least it is easier to learn than many other programming languages.</p>
+						<p>Even before JavaScript, sites could be somewhat interactive. After all, clicking a hyperlink loads a new page. The nonlinear nature of hypertext allows the reader to decide where to go next—to structure her own voyage through the site (and, indeed, through the Web).</p>
+						<p>That is an interactive process and a rather profound one. But it is not a terribly <em>sophisticated</em> form of interactivity. JavaScript puts the top hat and tails on web interactivity.</p>
+						<h3>The Web Before JavaScript</h3>
+						<p>Before JavaScript, programming languages such as Perl were used to facilitate interactive processes, for example typing text into a form and clicking a button, thereby sending requested information to the site’s owners. Perl is still often used for this purpose on a great many sites.</p>
+						<p>But Perl is a server-side scripting language. That is, when a visitor clicks the Send button, the web server itself must process the script. If the server goes down or malfunctions, nothing will happen. Likewise, a web page not connected to a web server—say, a web page on your hard drive—would not be able to process such a script except in special circumstances (permanent Net connection, full <abbr title="Uniform Resource Locator">URL</abbr> specified in the <code class="nopad">&lt;FORM ACTION></code>, burning of incense, wearing of magic ring).</p>
+						<p>While the script is being processed, the web server is momentarily tied up—just as your Mac or <abbr title="Personal Computer">PC</abbr> gets tied up when you apply motion blur to an image in Photoshop. Imagine constantly applying motion blur while receiving and sending email, and you begin to see what web servers were up against. (This is, of course a crude picture, and if you like it, we have other crude pictures available at a nominal price.)</p>
+						<p>As the Web’s population grew, more and more users were clicking more and more Send buttons. More and more web servers were thus spending more and more time processing scripts in between serving web pages. Meanwhile, the user’s browser sat there, doing nothing. A tool was needed to transfer the process from the server to the <em>client</em> (the user’s computer). Enter JavaScript.</p>
+						<h3>JavaScript, Yesterday and Today</h3>
+						<p>In 1995, the company formerly known as Netscape Communications Corporation introduced a <em>client-side</em> programming language designed to transfer the burden of interactive processing from the web server to the end-user’s browser. Unlike other programming languages (such as Java or C), this new language was built into the browser. It even understood <abbr title="Hypertext Markup Language">HTML</abbr>.</p>
+						<p>Netscape called its new client-side scripting language LiveScript, but soon changed the name to JavaScript to capitalize on the growing excitement about Sun’s Java language. To this day, as a result of their similar names, many beginning web designers (and users) confuse Java with JavaScript. The relationship between the two is mainly one of marketing.</p>
+						<p>Netscape quickly promised to release JavaScript as a web standard so that other browsers could use it too. But for competitive reasons, the company initially held back on its pledge. Old browsers like Mosaic could not use JavaScript at all. Neither could Microsoft’s newly unveiled Internet Explorer.</p>
+						<p>To offset Netscape’s advantage, Microsoft’s browser engineers developed a JavaScript-like language called JScript. Web design quickly became a circle of Hell, as serious developers were forced to work with these similar but incompatible technologies. Freelancers and small firms, lacking deep resources, often chose to support only one technology. That one was nearly always JavaScript, especially in the beginning when Internet Explorer enjoyed only a tiny share of the market. Thus JavaScript functioned as a sort of standard before it really was one.</p>
+						<p>Around the Millennium, JavaScript finally became an official web standard, available to all. As reported in <a href="2.html" title="Check out chapter 2.">Chapter 2</a>, "Designing for the Medium," the European Computer Manufacturers Association (<abbr title="European Computer Manufacturers Association">ECMA</abbr>) supervised the standardization of JavaScript, renaming it in the process. The universal web scripting language is now officially known as <abbr title="European Computer Manufacturers Association">ECMA</abbr>Script or <abbr title="European Computer Manufacturers Association">ECMA</abbr>-262, though no one we know calls it anything but JavaScript. (Our Scandanavian friends pronounce it "Ya-va-script," which we find incredibly endearing. That has nothing to do with any of this, but it does lend this chapter a certain international flair.)</p>
+						<p>The point is that JavaScript/<abbr title="European Computer Manufacturers Association">ECMA</abbr>Script is a standard that works in all current browsers, though there are still some subtle incompatibilities being worked out between the latest versions of Netscape, Internet Explorer, Opera, and other browsers. Meanwhile, the <abbr title="Document Object Model">DOM</abbr> has been standardized by <abbr title="World Wide Web Consortium">W3C</abbr>. Prior to that, JavaScript had its own ever-changing <abbr title="Document Object Model">DOM</abbr> in Netscape, and Microsoft had its own <abbr title="Document Object Model">DOM</abbr> as well.</p>
+						<p>As all browsers finalize complete support for these standards, web designers and developers are being empowered to create sophisticated interactivity that works for everyone. Conversely, as browsers lag in their <abbr title="Document Object Model">DOM</abbr> and <abbr title="European Computer Manufacturers Association">ECMA</abbr>Script support, web designers and developers are stuck programming alternate versions of every site function, often going so far as to develop alternate versions of the sites themselves.</p>
+						<p>Now that we’ve concluded our mini-history lesson and you’ve finished your nap, let’s move on to the good stuff.</p>
+						<h2>JavaScript, Unhh! What Is It Good For?</h2>
+						<p>Absolutely lots of things. Through this web-friendly programming language, designers and developers can:</p>
+						<ul>
+							<li><span>Replace cryptic status bar <abbr title="Uniform Resource Locators">URLs</abbr> ("<span class="orange">http://www.doglovers.com/poodles.html</span>") with text messages ("Learn about poodles"), a somewhat controversial practice, for reasons we’ll discuss in a moment.</span></li>
+							<li><span>Create the ever-popular image rollover effect discussed in <a href="9.html" title="Check out chapter 9.">Chapter 9</a>, "Visual Tools."</span></li>
+							<li><span>Compensate for browser incompatibilities.</span></li>
+							<li><span>Open new, precisely sized "pop-up" windows, with or without various bits of browser chrome.</span></li>
+							<li><span>Test for the presence or absence of Flash, QuickTime, or other plugins (more about plug-ins in <a href="12.html" title="Check out chapter 12.">Chapter 12</a>, "Beyond Text/Pictures").</span></li>
+							<li><span>Rotate content and images depending on the time of day, the number of times the user has viewed a certain page, or simply at random.</span></li>
+							<li><span>Enable the client to inject 50 links on a page without cluttering that page at all.</span></li>
+							<li><span>Provide alternative means of navigating the site.</span></li>
+							<li><span>"Remember" that a user has visited the site before, sparing her the pain of reentering personal data or passwords. This is accomplished by means of <em>cookies</em> (Netscape terminology for little bits of text that reside on the end-user’s hard drive and can be recognized by JavaScript on subsequent visits to the site).</span></li>
+							<li><span>Cause images or text boxes to scroll horizontally or vertically, another controversial and often annoying practice.</span></li>
+							<li><span>Verify the credibility of email addresses entered on "customer feedback" forms. JavaScript won’t tell you if a person is using her email address or someone else’s, but it will tell you if the address is well formed or not. (If malformed, it is probably a nonworking address.)</span></li>
+							<li><span>Control complex frames—of less importance than it used to be, as frames are gradually being phased out. Similarly, JavaScript can protect sites from a third party’s poorly crafted frames.</span></li>
+							<li><span>Create <em>nested</em> navigational menus that reveal secondary and tertiary levels in response to cursor movements—a wonderful idea because it enables visitors to navigate directly to the information they seek, but problematic because not all browsers fully support a standard means of doing this.</span></li>
+							<li><span>...and much more.</span></li>
+						</ul>
+						<p>Add the <abbr title="World Wide Web Consortium">W3C</abbr> <abbr title="Document Object Model">DOM</abbr> to what JavaScript does already and you can change that phrase to "much, much, <em>much</em> more."</p>
+						<p>We know what you’re saying. "Sounds great, but I’m, like, an artist. Do I really have to learn this stuff?"</p>
+						<h2>Sounds Great, but I’m an Artist. Do I Really Have to Learn This Stuff?</h2>
+						<p>The politically correct answer is, yes you do, because adding interactivity to your clients’ sites is part of what makes you a web designer. The gentle answer is, learning JavaScript is an iterative process: You can begin by cutting and pasting and gradually come to understand what you’re working with. The Richard Nixon Memorial answer is, not at first, and maybe never.</p>
+						<p><em>Not at first and maybe never</em> is an answer because many working web designers get by for years doing nothing more than cutting and pasting other people’s scripts. By the way, we’re not talking about <em>stealing</em> code. Many developers freely offer their scripts in return for an acknowledgement in the source code, and some don’t even ask for <em>that</em> (<a href="//web.archive.org/web/20110721204802/http://javascript.internet.com" title="Check out what javascript.internet.com looked like back in 2011.">http://javascripts.earthweb.com/</a>).</p>
+						<p>Likewise, many other web designers get along by using <abbr title="What You See Is What You Get">WYSIWYG</abbr> editors such as Macromedia Dreamweaver and Adobe Golive and image editors such as Macromedia Fireworks—programs that can create many standard JavaScript functions for you. Some respected web designers have never programmed a line of JavaScript code; they let Dreamweaver do it.</p>
+						<p>But <em>most</em> web designers do learn at least the basics of JavaScript because, sooner or later, they run into problems they cannot solve without it. A problem like this can occur: A certain page does not display properly in Netscape 4. The solution would be to create an alternate page that does work in Netscape 4 and use JavaScript to send Netscape 4 users to that alternate page. For nearly every design problem like this, there is a simple JavaScript solution.</p>
+						<p>The other problem with cutting and pasting (or relying on a <abbr title="What You See Is What You Get">WYSIWYG</abbr> editor) is that browsers change, web standards evolve, and cut-and-paste scripts as well as <abbr title="What You See Is What You Get">WYSIWYG</abbr> editors tend to lag behind.</p>
+						<p>Hopefully, Microsoft, Netscape, and Opera will soon patch the holes in their <abbr title="European Computer Manufacturers Association">ECMA</abbr>Script and <abbr title="Document Object Model">DOM</abbr> support, and Macromedia and Adobe will vastly improve their support for these standards in Dreamweaver and Golive, respectively. If both things happen, you might be able to spend the rest of your life banging out advanced JavaScript functions with no clue as to what you are doing or why it works.</p>
+						<p>If you intend to work primarily as a graphic designer and merely wish to create simple sites for your existing clients, you can probably get by with cutting and pasting or relying on Dreamweaver or Golive—at least for the time being.</p>
+						<p>But if you intend to plunge into full-time web design or if you simply want to master the craft, you will want to learn JavaScript. So let us tell you how you can do that, and then we’ll move on to examine how JavaScript helps web designers solve typical problems that arise in the development of any professional site.</p>
+						<h2>Educating Rita About JavaScript</h2>
+						<p>We’ve called JavaScript a relatively "easy-to-learn" programming language, but it <em>is</em> a programming language, and teaching it is beyond the scope of this book. In some ways, teaching it is beyond the scope of fat books dedicated entirely to that pursuit. However, we can recommend two books on the subject:</p>
+						<ul>
+							<li><span>Nick Heinle’s <em>Designing With JavaScript: Creating Dynamic Web Pages</em> (O’Reilly: 1997) is a wonderful, readable, detailed introduction that any designer can understand and is chock-full of examples and explanations of the basic terminology and theory behind JavaScript. The book is somewhat out of date (at least as of this writing), but it will raise your comfort level tremendously while teaching you the basics.</span></li>
+							<li><span><em>JavaScript for the World Wide Web: Visual Quickstart Guide, Third Edition</em>, by Tom Negrino and Dori Smith (Peachpit Press: 1999) provides a series of quick exercises, complete with screenshots, that demystify JavaScript while explaining how to perform useful functions and avoid common mistakes. From plug-in testing to creating dynamic menus or from controlling frames to baking your first "cookie," pretty much everything you need to know can be found here. The scripts also are freely available at the authors’ <a href="//web.archive.org/web/200102021307/http://javascriptworld.com" title="Check out what javascriptworld.com looked like back in 2001.">www.javascriptworld.com</a> site.</span></li>
+						</ul>
+						<p>Speaking of free online resources, you also can learn much about JavaScript by studying Thau’s JavaScript tutorial at Webmonkey (<a href="//web.archive.org/web/200101110707/http://hotwired.lycos.com/webmonkey/javascript/?" title="Check out what hotwired.lycos.com/webmonkey/javascript/tutorials/tutorial1.html looked like back in 2001.">http://hotwired.lycos.com/webmonkey/javascript/tutorials/tutorial1.html</a>). Give yourself at least two days to go through all the exercises in this five-part tutorial. The <em>JavaScript School</em> at <a href="//web.archive.org/web/200101232233/http://www.w3schools.com/js" title="Check out what w3schools.com/js looked like back in 2001.">www.w3schools.com/js/</a> is another great place to learn. Classic and recent JavaScript/<abbr title="Document Object Model">DOM</abbr> articles may be found at <a href="//web.archive.org/web/20080928233743/http://javascript.about.com/?once=true&" title="Check out what javascript.about.com looked like back in 2008.">http://www.javascript.about.com/</a>.</p>
+						<p>We highly recommend that you buy these books and study these free online tutorials. We also recommend that you take it slow, breathe deeply, and avoid freaking yourself out over this stuff.</p>
+						<h3>Don’t Panic!</h3>
+						<p>As a web designer, you will not normally be expected to do advanced JavaScript and <abbr title="Document Object Model">DOM</abbr> programming. Instead, your knowledge of what JavaScript is and what it can be used for will enable you to work more closely with team members to create engaging websites.</p>
+						<p>But don’t think you’re getting off scot-free, either.</p>
+						<h2>JavaScript Basics For Web Designers</h2>
+						<p>As a professional web designer, you really should be able to use JavaScript to do simple things such as replacing meaningless <abbr title="Uniform Resource Locators">URLs</abbr> with text messages as a means of extending the site’s branding. (And ducking when some visitors complain about it.)</p>
+						<p>You should be able to create <em>rollovers</em> (image swaps) that help your visitors experience the site as a responsive, interactive entity. (Yes, by hand.)</p>
+						<p>You should know how to open new browser windows (when doing so serves a purpose), use browser detection to solve compatibility problems, and enhance your site’s navigation through JavaScript’s ability to manipulate simple <abbr title="Hypertext Markup Language">HTML</abbr> <code class="nopad">&lt;FORM></code> elements.</p>
+						<p>The techniques involved are as simple to learn as they are to demonstrate. Don’t mistake simplicity for stupidity: Some of the simple things we’re about to show you are among the most effective ways of adding interactivity to your sites.</p>
+						<p>Indeed, though we recommend learning all you can (and putting that knowledge to use with taste and restraint), too much knowledge can sometimes lead to too much inappropriate JavaScript: scrolling text that moves so quickly no one can read it, full-screen pop-up windows containing rigidly designed 800 x 600 sites that look ludicrous on large monitors, or complex, dynamic menus on general audience sites or on sites whose lack of in-depth content is made pitifully obvious when these complex menus end up pointing to single-paragraph pages.</p>
+						<p>While other jazz musicians blew fast and frantic, Miles Davis played very few notes. The way he played them, <em>when</em> he played them, and the many times he did not play at all, all combined to create a timeless creative legacy. This is our highfalutin’ way of reminding you that less is more, a little goes a long way, and slow bakin’ makes good eatin’.</p>
+						<p>So let’s look at some of these simple tasks and simple scripts. And let’s see how ordinary web designers with no programming experience use basic JavaScript techniques to solve everyday design and communication problems.</p>
+						<h2>The Dreaded Text Rollover</h2>
+						<p><span class="orange">Problem:</span> Your client is insane about branding. In his restaurants, he brands everything from the napkins to the silverware. He expects the same level of branding on his site.</p>
+						<p><span class="orange">Solution:</span> The JavaScript text rollover lets you brand even <abbr title="Hypertext Markup Language">HTML</abbr> links (see Figure 11.1).</p>
+						<figure>
+							<img src="img/11.1.png" alt="Figure 11.1">
+							<figcaption>
+								<h6>Figure 11.1</h6>
+								<p>The status bar text rollover in action at the personal site of Derek Powazek. Placing the mouse over <span class="orange">DESIGN FOR COMMUNITY</span> in the menu bar causes the phrase [DESIGN FOR COMMUNITY] to appear in the status bar at the bottom left of the browser. By mastering the basic text rollover, even beginners can emulate at least one Powazek design trick (<a href="//web.archive.org/web/200101191707/http://www.powazek.com" title="Check out what powazek.com looked like back in 2001.">www.powazek.com</a>).</p>
+							</figcaption>
+						</figure>
+						<p>Visit a typical site, and hold your mouse cursor over a link. You usually see something like this:</p>
+						<p><a href="" title="Unfortunately this is a dead link. :-(">http://www.fashionmaven.com/fashions/men/index.html</a></p>
+						<p>Not terribly interesting, not very informative for the average citizen, and it certainly won’t help your brand-happy client. How much better would it be if the visitor saw a message like this?</p>
+						<p><span class="orange">FASHION MAVEN fashions for men.</span></p>
+						<p>Many visitors might find this message far more useful than a bare-naked <abbr title="Uniform Resource Locator">URL</abbr>. And your client would certainly dig it. Fortunately, it is easy to accommodate these visitors and your client with JavaScript. Text rollovers are one of the easiest effects you can possibly create.</p>
+						<p>First, let’s look at a typical <abbr title="Hypertext Markup Language">HTML</abbr> link:</p>
+						<p><span class="orange">Explore FASHION MAVEN</span> <code class="nopad">&lt;a href="/fashions/men/">fashions for men&lt;/a></code>.</p>
+						<p>Notice that we’ve used an absolute link, as explained in <a href="8.html" title="Check out chapter 8.">Chapter 8</a>, "HTML, The Building Blocks of Life Itself." There is no need to waste bandwidth by including <code class="nopad">http://</code> or the company’s domain name in the link; both the <code class="nopad">http://</code> and the domain name are understood. There is also no need to waste bandwidth on <code class="nopad">"index.html"</code> because the systems administrator will have configured the server to display <code class="nopad">index.html</code> when no other document is specified. (Some systems administrators specify <code class="nopad">welcome.html</code> or <code class="nopad">index.htm</code> or <code class="nopad">default.htm</code> instead, but the same rules apply. If <code class="nopad">default.htm</code> is the default document on your server, you can link to it without typing it. But we digress.)</p>
+						<p>A visitor dragging her mouse over such a link will see the page’s <abbr title="Uniform Resource Locator">URL</abbr> and nothing more:</p>
+						<p><a href="" title="Unfortunately this is a dead link. :-(">http://www.fashionmaven.com/fashions/men/index.html</a></p>
+						<p>Let’s give the visitor something more informative than the page’s <abbr title="Uniform Resource Locator">URL</abbr>.</p>
+						<h3>The Event Handler Horizon</h3>
+						<p>Built into JavaScript are two powerful event handlers: <code class="nopad">onMouseOver</code> and <code class="nopad">onMouseOut</code>. Event handlers enable you to create functions that take place during an event. In this case, the event is that the visitor is dragging her mouse cursor over a link—pretty simple stuff.</p>
+						<p>Many event handlers are built into JavaScript, but these are the two that will help us right now. Let’s take the link just listed and make it more illuminating using JavaScript’s <code class="nopad">onMouseOver</code> event handler:</p>
+						<p><code>Explore FASHION MAVEN &lt;a href="/fashions/men/" onMouseOver ="window.status=’FASHION MAVEN fashions for men.’; return true;">fashions for men&lt;/a>.</code></p>
+						<p>What is going on here?</p>
+						<p>We’ve used the <code class="nopad">onMouseOver</code> event handler to tell the browser that something is supposed to happen when the visitor’s mouse hovers over this link. The event handler is followed by the equal sign in the same way that links and other standard bits of <abbr title="Hypertext Markup Language">HTML</abbr> use the equal sign.</p>
+						<p>As you may have guessed, <code class="nopad">window.status</code> is JavaScript’s charming way of referring to the status bar at the bottom of the web page. (The status bar is the part of the browser that usually displays the bare-naked <abbr title="Uniform Resource Locator">URL</abbr>, generally at the lower left.) Without getting too hairy, JavaScript gives each object in its document model an address based on the object’s position within the document’s hierarchy, moving from the top level of the hierarchy down to the details: <code class="nopad">window</code> is a top-level object; <code class="nopad">status</code> is the object being modified via JavaScript. (Like we said, buy the JavaScript books if you want a better explanation, and you probably do.)</p>
+						<p>Notice that the status bar message text <span class="orange">‘FASHION MAVEN fashions for men.’</span> is enclosed within single quotation marks. This is because the JavaScript itself is enclosed within double quotation marks. If the text also used double quotation marks, the browser would not know how to distinguish the quoted JavaScript from the quoted text.</p>
+						<p>Observe also that both the description and the phrase <code class="nopad">return true</code> end in a semicolon. This is basic JavaScript syntax, so get used to it. There are more semicolons in JavaScript than in all Charles Dickens’s novels combined. Technically, the semicolon is not required when a JavaScript statement ends the line. So,</p>
+						<p><code>window.status = "some thing"</code></p>
+						<p>is perfectly valid JavaScript in the context of a function, a la:</p>
+						<p>
+							<code>
+								&lt;script type="text/javascript"> function rollover() {<br>
+								window.status = "some thing" // no semicolon }<br>
+								&lt;/script>
+							</code>
+						</p>
+						<p>But if you are placing two or more statements on a single line, as you would inside an event handler attribute, you must separate the statements by semicolons.</p>
+						<p>Finally, note that <code class="nopad">return true</code> is used at the end to handle the event. It tells the browser to follow the <abbr title="Hypertext Markup Language">HTML</abbr> link. <code class="nopad">Return false</code> would tell the browser <em>not</em> to follow the link, which can be useful when you don’t want to load a new page.</p>
+						<h3>Status Quo</h3>
+						<p>So far, so good—now let’s make our little example even more exciting. (Well, as exciting as this kind of stuff gets.) Let’s craft a message that shows up in the status bar when the visitor stops hovering over the link:</p>
+						<p><code>Explore FASHION MAVEN &lt;a href="/fashions/men/" onMouseOver ="window.status=’FASHION MAVEN fashions for men.’; return true;" onMouseOut="window status=’Welcome to FASHION MAVEN.’; return true;">fashions for men&lt;/a>.</code></p>
+						<p>What have we done? (Besides further prostituting ourselves to FASHION MAVEN, that is.)</p>
+						<p>We’ve used exactly the same syntax to replace the <code class="nopad">onMouseOver</code> message with a default status bar message. When the user places the mouse pointer over the link, he’ll read "FASHION MAVEN fashions for men." When he releases the mouse, our insistent client will replace that link-specific brand message with a general one: "Welcome to FASHION MAVEN." This general message will remain in the visitor’s status bar until he moves the mouse over a new link. If we had not done this, "FASHION MAVEN fashions for men" would have been "stuck" in the status bar window even after the visitor removed his mouse from that link.</p>
+						<p>None of what we’ve just shown you requires any custom scripting or preparation in the <code class="nopad">&lt;HEAD></code> of the <abbr title="Hypertext Markup Language">HTML</abbr> document. The <code class="nopad">onMouseOver</code> and <code class="nopad">onMouseOut</code> event handlers are as old as the hills, and any JavaScript-capable browser will handle this code natively. (As we’ll see later, other JavaScript techniques require a script before the function itself.)</p>
+						<p>Well, this is fine for a single link, but coding identical <code class="nopad">onMouseOut</code> messages for a dozen links seems like a lot of work, doesn’t it? There ought to be a shortcut! And fortunately, there is. (Programmers are always creating shortcuts.)</p>
+						<p>In the <code class="nopad">&lt;BODY></code> tag of our <abbr title="Hypertext Markup Language">HTML</abbr> document, we can add this line of code:</p>
+						<p><code>&lt;body onLoad="window.defaultStatus=’Welcome to FASHION MAVEN.’"></code></p>
+						<p>For the sake of simplicity, we’ve left out the rest of the markup you might normally include in the <code class="nopad">&lt;BODY></code> tag, such as the default background color, text color, and so on. Of course, if you’re following <abbr title="World Wide Web Consortium">W3C</abbr> recommendations and using <abbr title="Cascading Style Sheets">CSS</abbr> to handle your site’s stylistic elements, then your <code class="nopad">&lt;BODY></code> tag <em>can</em> be as simple as <code class="nopad">&lt;BODY></code> with no extra junk inside it.</p>
+						<p>As you have probably deduced, <code class="nopad">onLoad</code> is another event handler. In this case, the event is the loading of the web page itself. When the page loads (the event), a function must be performed. In this case, you’ve instructed the browser that the required function is a change in the status bar message. Thanks to your cleverness, even before the visitor hovers over a link, the status bar at the bottom of the browser will proudly proclaim, "Welcome to FASHION MAVEN." Can you feel your client’s love? We can. You have now carried your client’s brand down to the level of the status bar. Had you not done this, the status bar would read "Internet Zone" or something equally meaningless (as far as your client is concerned).</p>
+						<p>But wait, there’s more! Because the <code class="nopad">onLoad</code> event handler in our <code class="nopad">&lt;BODY></code> tag is telling the browser to proclaim "Welcome to FASHION MAVEN." by default, we can simplify our JavaScript link as follows:</p>
+						<p><code>Explore FASHION MAVEN &lt;a href="/fashions/men/" onMouseOver ="window.status=’FASHION MAVEN fashions for men.’; return true;" onMouseOut="window status=’’;return true;">fashions for men&lt;/a>.</code></p>
+						<p>What changed? Look closely. We’ve removed the redundant text "Welcome to FASHION MAVEN" and replaced it with Folger’s Crystals. Just kidding. Actually, we’ve replaced it with an empty pair of single quotations, which tell the browser to revert to the default text specified by the <code class="nopad">onLoad</code> event handler ("Welcome to FASHION MAVEN"), We no longer have to type "Welcome to FASHION MAVEN." in the JavaScript text link itself.</p>
+						<p>That may not seem like much of an achievement. That’s because it’s not much of an achievement. But if there are a dozen links on this page, all requiring JavaScript text messages, we’ve saved ourselves the trouble of typing the same <code class="nopad">onMouseOut</code> text 12 times. We’ve also saved the viewer the trouble of downloading those few kilobytes of redundant text.</p>
+						<p>Notice that it is possible to create dynamic web effects in web pages that live on your desktop—without requiring a web server. Hooray for JavaScript!</p>
+						<h3>A Cautionary Note</h3>
+						<p>Like everything you can do on the Web, modifying the default status bar message involves trade-offs and thus requires thought. Browsers use <code class="nopad">defaultStatus</code> to communicate with users, letting them know if they’ve connected or not, informing them when an object is being downloaded, and letting the geeks in the house keep track of the actual <abbr title="Uniform Resource Locators">URLs</abbr> to which your links point. Modifying <code class="nopad">defaultStatus</code> can enhance site branding and please your client, but it might upset some users, so don’t use JavaScript in this way unless the benefits outweigh the drawbacks.</p>
+						<h3>Kids, Try This at Home</h3>
+						<p>Before we go any further, try reproducing the JavaScript effects we just described in a simple <abbr title="Hypertext Markup Language">HTML</abbr> page you’ve written. Needless to say, you will not win any innovation awards, but it might help you conquer any lingering fear of programming. If you can do this simple thing, you can do other, somewhat more complex things.</p>
+						<p>When it works on a page you’ve created, you’ll begin to feel like a web designer. If it <em>doesn’t</em> work, you’ll <em>really</em> begin to feel like a web designer.</p>
+						<p>Then you’ll go back and fix your syntax. Speaking of which...</p>
+						<h4>The fine print</h4>
+						<p>Because single quotation marks are used to denote the beginning and ending of text messages, what do you do if your text includes an apostrophe? After all, in <abbr title="Hypertext Markup Language">HTML</abbr>, an apostrophe is exactly the same as a single quotation mark.</p>
+						<p>What you do is "escape" the single quotation mark by inserting a backslash character in front of it.</p>
+						<p><code>Lip smackin’ good! Get &lt;a href="/recipes/stupidcomeon.html" onMouseOver="window.status=’Our chef\’s favorites.’; return true;" onMouseOut="window status=’’;return true;">the recipes&lt;/a>.</code></p>
+						<p>Notice that we don’t refer to our chef’s favorites; we refer to our <code class="nopad"><em>chef\’s</em></code> favorites. The backslash character tells the browser to treat the quotation mark as a quotation mark, not a string terminator (meaning, not the end of a JavaScript statement). Forgotten backslashes have caused many a web designer her share of sleepless nights.</p>
+						<h4>Return of the son of fine print</h4>
+						<p>Yep, one more tip. Forget the semicolon, and you will create JavaScript errors in many browsers, which unfortunately will not show up in many others. That’s unfortunate because if you can’t see the error, you might not realize it’s in there—so you may not know to fix it.</p>
+						<p>For some reason, Macs seem especially forgiving of the missing semicolon error. Many a Mac-based web designer has uploaded a web page (or an entire site) and gone off to smoke reefer, little realizing that he has left a trail of JavaScript syntax errors behind him. The moral, of course, is to check your JavaScript syntax carefully, test on multiple platforms, and avoid smoking reefer—especially that overpriced brown stuff they’re selling uptown.</p>
+						<h3>The Not-So-Fine Print</h3>
+						<p>It’s worth pointing out again that some web users, including hardcore geeks, detest this flippant toying with the sanctity of the status bar. These users want to know which <abbr title="Uniform Resource Locator">URL</abbr> your link will take them to. They deeply resent your hiding this information from them with stupid text about FASHION MAVEN. Some might even avoid clicking the link out of paranoid fear. ("Dude, if I can’t see the link, I don’t know where you’re taking me.") Thus they will never learn about FASHION MAVEN’s extensive selection of plaids and corduroys for tall men, short men, fat men, and cadets, all at prices 10% below what department stores usually charge.</p>
+						<p>You think we are making this up, but you haven’t read our email and haven’t spent years watching flame wars erupt on web design mailing lists. You think people will click links without worrying about or even noticing these changes in the expected status bar message. Many people, of course, won’t notice; many others will notice and not care; some will notice and be pleased. But others will be displeased, and a few may even write letters of complaint.</p>
+						<p>These people are out there, and some of them might be among your clients’ favorite customers. Thus, your infinitesimal gain in branding could be offset by a commensurate loss of audience. Even this small a decision is worth considering carefully.</p>
+						<p>It’s also worth mentioning that, with the rise of <abbr title="Hypertext Markup Language">HTML</abbr>’s <code class="nopad">&lt;TITLE></code> attribute:</p>
+						<p><code>&lt;a href="somelink.html" title="Information about this link."></code></p>
+						<p>...there is now an easier way to enhance the information conveyed by a link.</p>
+						<p>In <abbr title="Internet Explorer">IE</abbr>4 (and higher), Netscape 6 (and higher), Opera 5, iCab, and Mozilla, the <code class="nopad">&lt;TITLE></code> attribute will cause a Windows-like Tool Tip or Mac <abbr title="Operating System">OS</abbr> Help balloon to pop up when the user hovers over the link. (In Opera, the message appears in the browser’s status bar, just like a JavaScript mouse-over text.) This Tool Tip or Help balloon will contain the text you’ve written inside the quotation marks following the word <code class="nopad">title</code> and the equal sign. To avoid overwhelming users with flying tool tips, there is usually a slight delay before the Tool Tip appears. There is also no need to worry about escaped characters when writing <code class="nopad">&lt;TITLE></code> attribute text:</p>
+						<p><code>&lt;a href="somelink.html" title="It’s exciting not to worry about apostrophes, isn’t it? Gosh, it’s really swell."</code></p>
+						<p>Of course, if your <code class="nopad">&lt;TITLE></code> text includes a double quote, the browser could get confused:</p>
+						<p><code>&lt;a href="/" title="We say "no!" to drugs."></code></p>
+						<p>Instead, use single quotations:</p>
+						<p><code>&lt;a href="/" title="We say ‘no!’ to drugs."></code></p>
+						<p>Not only is this <code class="nopad">&lt;TITLE></code> attribute method marginally easier to use than JavaScript, it is also, in some ways, more logical. When a user has her eye on a link (or a linked image), her eye does not wish to jump down to the browser status bar. Her eye wants to say where it is. In <abbr title="Internet Explorer">IE</abbr>4+ and Netscape 6, the <code class="nopad">&lt;TITLE></code> attribute accommodates this natural behavior of the human eye and mind because the Tool Tip or Help balloon pops up adjacent to the link itself.</p>
+						<p>Still, we do not wish to discourage you from using status bar messages.</p>
+						<p>They make a handy informational and branding tool, and they work in older browsers (like Netscape 4) that don’t support the <code class="nopad">&lt;TITLE></code> attribute.</p>
+						<h2>The Ever-Popular Image Rollover</h2>
+						<p><span class="orange">Problem:</span> The site is pretty but feels lifeless. Visitors are encouraged to admire but not to click and explore. The site needs a shot of <abbr title="Graphical User Interface">GUI</abbr>-like, visual interactivity.</p>
+						<p><span class="orange">Solution:</span> The JavaScript image rollover (see Figures 11.2 and 11.3).</p>
+						<figure>
+							<img src="img/11.2.png" alt="Figure 11.2">
+							<figcaption>
+								<h6>Figure 11.2</h6>
+								<p>Kaliber 10000, "The Designer’s Lunchbox," is a jewel of graphic and navigational design with numerous JavaScript tricks up its virtual sleeve. Note the "K10k back issues" pull-down menu at the upper right, the code for which is described later in this chapter. One of K10k’s simpler (but very effective) techniques is using the ever-popular image rollover to replace static icons with animated ones. For instance…</p>
+							</figcaption>
+						</figure>
+						<figure>
+							<img src="img/11.3.png" alt="Figure 11.3">
+							<figcaption>
+								<h6>Figure 11.3</h6>
+								<p>…dragging your mouse cursor over the Rants and Raves button replaces the static dog with a <abbr title="Graphics Interchange Format">GIF</abbr> animation of a pooping dog. Hey, we said they were brilliant web designers; we didn’t say they were mature (<a href="//web.archive.org/web/200102031509/http://www.k10k.net/issue100celebration/16/index.htm" title="Check out what k10k.net looked like back in 2001.">www.k10k.net</a>).</p>
+							</figcaption>
+						</figure>
+						<p>Let’s assume that after reading <a href="9.html" title="Check out chapter 9">Chapter 9</a>, "Visual Tools," you opened Photoshop and ImageReady, designed a web page comp, sliced it, and used ImageReady to generate the JavaScript rollover. Now take those same sliced images, open your <abbr title="Hypertext Markup Language">HTML</abbr> text editor of choice (Allaire Homesite, Barebones BBEdit, or Optima-Systems PageSpinner), and, using the techniques you learned in the books or online tutorials mentioned earlier in this chapter, write yourself an image rollover by hand.</p>
+						<p>You can do it! It’s okay to prop the books open in front of you or to refer back to Thau’s web pages. You’ll create links much like the text links we showed in the previous example. You’ll also hand-code a <em>preload</em>, usually in the <code class="nopad">&lt;HEAD></code> of your document. A preload ensures that swapped images will be downloaded to the user’s cache before the page displays. In that way, those preloaded images are ready to leap into action the moment the user drags her mouse over them.</p>
+						<p>Why are rollover effects so popular? We think it is because users are accustomed to operating systems whose <abbr title="Graphical User Interfaces">GUIs</abbr> respond to their actions. Rollovers emulate this behavior, and they indicate that an image is more than an image—it is a dynamic trigger to an action the user can perform. Users dig that stuff.</p>
+						<h3>A Rollover Script from Project Cool</h3>
+						<p>On the assumption that you haven’t bought those other books yet, haven’t read any of the online tutorials, and still feel uncomfortable with JavaScript, we’ll go ahead and show you another simple way to create JavaScript image rollovers.</p>
+						<p>The following was adapted from a basic script at Project Cool. And that’s okay. Project Cool wrote their script back in the late 1990s so web designers would use it and learn from it. The future of Project Cool is doubtful because the site’s creators left in late 1999, but this script and others like it were still available online as of this writing (<a href="//web.archive.org/web/200101182117/http://www.projectcool.com" title="Check out what projectcool.com looked like back in 2001.">www.projectcool.com</a>).</p>
+						<p>
+							<code>
+								&lt;script type="text/javascript"><br>
+								&lt;!-- Adapted from Projectcool.com<br> 
+								if (document.images){<br>
+								mainover = new Image; mainout = new Image;<br>
+									<span class="extraleft">mainover.src = "/images/menubar_over_1.gif";</span><br> 
+									<span class="extraleft">mainout.src = "/images/menubar_out_1.gif";</span><br> 
+									<span class="extraleft">storiesover = new Image;</span><br> 
+									<span class="extraleft">storiesout = new Image;</span><br> 
+									<span class="extraleft">storiesover.src = "/images/menubar_over_2.gif";</span><br> 
+									<span class="extraleft">storiesout.src = "/images/menubar_out_2.gif";</span><br>
+								}<br>
+								functiover swapem(iname, gname) {<br>
+									<span class="extraleft">if(document.images){</span><br> 
+										<span class="doubleextraleft">iname.src = gname.src;</span><br>
+									<span class="extraleft">}</span><br> 
+								}<br>
+								//--> &lt;/script>
+							</code>
+						</p>
+						<p>This script goes inside the <code class="nopad">&lt;head>&lt;/head></code> of an <abbr title="Hypertext Markup Language">HTML</abbr> document. It might look complex if you’re unfamiliar with JavaScript, but it is really elegantly simple.</p>
+						<p>The script begins by announcing the fact that it is a script and that its type is <code class="nopad">text/javascript</code>. Older browsers expected to see a <code class="nopad">&lt;LANGUAGE></code> attribute with the name and, optionally, a version of the scripting language being used ("Javascript1.2," for instance), but this attribute has been deprecated in favor of a more generic <code class="nopad">&lt;MIME></code> type descriptor. Don’t worry if you don’t understand what we just said; simply relax and type:</p>
+						<p><code>&lt;script type="text/javascript"></code></p>
+						<p>Similarly, the end of the script is announced by a <code class="nopad">&lt;/script></code> tag. As with <abbr title="Hypertext Markup Language">HTML</abbr> and <abbr title="Cascading Style Sheets">CSS</abbr>, <code class="nopad">&lt;comment></code> tags tell search engine spiders (and non-JavaScript-capable browsers) to ignore everything written between <code class="nopad">&lt;!--</code> and <code class="nopad">--></code>. You want search engines to help web users find your content, not your JavaScript.</p>
+						<p>Next, the Project Cool script sets a condition for running. Early versions of JavaScript did not support image rollovers. The script wants to make sure it is working with a browser that understands rollovers, so it tests the browser’s receptivity to the <em>images array object of the document model:</em></p>
+						<p><code>if (document.images)</code></p>
+						<p>The script could have accomplished the same thing by detecting for browsers and platforms (a technique known as <em>browser sniffing</em>). For instance, it could have checked for the presence of Netscape 2 and Internet Explorer 3, two browsers that did not support the images array of the document model (and hence would not be able to process this script). But the code to check for these browsers is somewhat long compared to a simple line such as</p>
+						<p><code>if (document.images)</code></p>
+						<p>Besides, some versions of <abbr title="Internet Explorer">IE</abbr>3 <em>did</em> understand image rollovers. Rather than get tangled in browser versions, it is easier, more elegant, and more reliable to test for an understanding of the document images object. If the browser does not understand <code class="nopad">(document.images)</code>, the script will be skipped. If the required conditions are met, the script runs.</p>
+						<p>The script next declares two image conditions (<span class="orange">Over</span> or <span class="orange">Out</span>) and preloads the required images (<span class="orange">mb3_on-01-01.gif</span>, <span class="orange">mb3_off-01-01.gif</span>, <span class="orange">mb3_on-02-01.gif</span>, and <span class="orange">mb3_off-02-01.gif</span>):</p>
+						<p>
+							<code>
+								if (document.images){<br>
+								mainover = new Image; mainout = new Image;<br>
+									<span class="extraleft">mainover.src = "/images/menubar_over_1.gif";</span><br> 
+									<span class="extraleft">mainout.src = "/images/menubar_out_1.gif";</span><br>
+									<span class="extraleft">storiesover = new Image;</span><br> 
+									<span class="extraleft">storiesout = new Image;</span><br> 
+									<span class="extraleft">storiesover.src = "/images/menubar_over_2.gif";</span><br> 
+									<span class="extraleft">storiesout.src = "/images/menubar_out_2.gif";</span><br>
+							</code>
+						</p>
+						<p><code class="nopad">Over</code> corresponds to the <code class="nopad">onMouseOver</code> state, and <span class="orange">off</span> corresponds to the default and <code class="nopad">onMouseOut</code> state. The two images correspond to two named JavaScript objects (<span class="orange">main</span> and <span class="orange">stories</span>).</p>
+						<p>Finally, the script declares a <code class="nopad">swapem</code> function, which works by swapping one image state for another:</p>
+						<p>
+							<code>
+								function swapem(iname, gname) {<br> 
+									<span class="extraleft">if(document.images){</span><br>
+										<span class="doubleextraleft">iname.src = gname.src;</span>
+							</code>
+						</p>
+						<p>As we said, all of this takes place in the <code class="nopad">&lt;HEAD></code> of the <abbr title="Hypertext Markup Language">HTML</abbr> document, though it could just as easily live in an external JavaScript document. Like an external style sheet as described in <a href="10.html" title="Check out chapter 10">Chapter 10</a>, "Style Sheets for Designers" external JavaScript documents can live anywhere on the web server and are referenced via links in the <code class="nopad">&lt;HEAD></code> of each <abbr title="Hypertext Markup Language">HTML</abbr> page:</p>
+						<p><code>&lt;script language="JavaScript" type="text/javascript" src="/daily.js">&lt;/script></code></p>
+						<p>For more on external JavaScripts, see "Going Global with JavaScript," later in this chapter.</p>
+						<p>All that remains is to call up these functions in the <code class="nopad">&lt;BODY></code> of the <abbr title="Hypertext Markup Language">HTML</abbr> document itself.</p>
+						<p>And here is code that does just that:</p>
+						<p><code>&lt;a href ="/main.html" onMouseOver="swapem(main, mainover); return true;"onMouseOut="swapem(main, mainout);return true;">&lt;img name="main" src="/images/menubar_out_1.gif " width="200" height="25" border="0" alt="Visit the main page." title="Visit the main page.">&lt;/a></code></p>
+						<p>This code should look somewhat familiar to you because it is fairly similar to the dreaded text rollover.</p>
+						<p>Once again, here is a standard <abbr title="Hypertext Markup Language">HTML</abbr> link followed by two event handlers: one for <code class="nopad">onMouseOver</code>, the other for <code class="nopad">onMouseOut</code>. But now, instead of invoking a status bar message, our <code class="nopad">MouseOver</code> and <code class="nopad">MouseOut</code> states call upon the <code class="nopad">swapem</code> function declared earlier in the document. The <code class="nopad">onMouseOver</code> event handler declares two variables for the <code class="nopad">swapem</code> function: a named object (in this case, <code class="nopad">main</code>) and an appropriate image state (<code class="nopad">mainover</code>)—<code class="nopad">over</code>, because this is the "MouseOver" state for the image object. The <code class="nopad">onMouseOut</code> event handler also declares two variables for the <code class="nopad">swapem</code> function: a named object (<code class="nopad">main</code>) and an appropriate image state (<code class="nopad">mainout</code>)—<code class="nopad">out</code>, because this is the "MouseOut" state for the image object. Semicolons follow the naming of the variables and the required <code class="nopad">return true</code> declaration.</p>
+						<p>The image <code class="nopad">&lt;IMG></code> tag that follows gives the source image a name (<code class="nopad">main</code>), allowing the <code class="nopad">swapem</code> function to recognize the image as the object that is supposed to be swapped. The remaining <code class="nopad">&lt;SRC></code>, <code class="nopad">&lt;WIDTH></code>, <code class="nopad">&lt;HEIGHT></code>, and <code class="nopad">&lt;BORDER></code> attributes should be familiar to you from the <abbr title="Hypertext Markup Language">HTML</abbr> chapter. The <code class="nopad">&lt;ALT></code> and <code class="nopad">&lt;TITLE></code> attributes are included so that the menu item will remain accessible to those who surf with images turned off or who are using nongraphical browsers such as Lynx. The link to <span class="orange">/main.html</span> will work even if JavaScript has been turned off in the user preferences (or the browser does not support JavaScript).</p>
+						<p>The code and the effect on the web page are much simpler than the descriptive text you’ve just waded through.</p>
+						<p>You might ask, can JavaScript text rollovers be added to an image rollover like the one just described? The answer is yes, and it can be done very easily:</p>
+						<p><code>&lt;a href ="/main.html" onMouseOver="swapem(main, mainover); window.status=’Visit the main page.’; return true;" onMouseOut="swapem(main, mainout); window.status=’’; return true;">&lt;img name="main" src="/images/menubar_out_1.gif" width="200" height="25" border="0" alt="Visit the main page." title="Visit the main page.">&lt;/a></code></p>
+						<h2>Windows on the World</h2>
+						<p><span class="orange">Problem:</span> The site offers streaming video files. You, the client, or the information architect want these files to play back inside the browser via the QuickTime plug-in (see <a href="12.html" title="Check out chapter 12">Chapter 12</a>). It is easy to use the <abbr title="Hypertext Markup Language">HTML</abbr> <code class="nopad">&lt;EMBED></code> or <code class="nopad">&lt;OBJECT></code> tags to embed a QuickTime movie in a thoughtfully designed <abbr title="Hypertext Markup Language">HTML</abbr> page. But if you do this on the current page, the movie will begin streaming even if visitors do not have the bandwidth or patience to see it.</p>
+						<p><span class="orange">Solution:</span> The JavaScript pop-up window.</p>
+						<p>Opening new windows via JavaScript is a simple task, though it’s somewhat controversial. Some web users feel that everything should happen in their existing browser window. These folks hate pop-up windows, remote controls, and everything else that can happen outside the safe, familiar world of their existing browser window.</p>
+						<p>Are these users right? They are right for themselves.</p>
+						<p>What does this mean? It means that pop-up windows, remotes, and other such stunts should never be created lightly or purposelessly. (Why offend visitors if you can avoid it?)</p>
+						<p>Sometimes, however, you need pop-up windows. Sometimes, nothing else will do—as in the present example, when you wish to embed a streaming video file in a web page but don’t want to force that streaming movie on users who don’t care to (or can’t) view it. Pop-up windows can also be used to provide additional information as needed (see Figure 11.4). In case of emergency, break glass and use JavaScript to easily create new windows.</p>
+						<figure>
+							<img src="img/11.4.png" alt="Figure 11.4">
+							<figcaption>
+								<h6>Figure 11.4</h6>
+								<p>JavaScript pop-up windows annoy some web users but can be extremely functional. At <em><abbr title="Television">TV</abbr> Guide</em>’s site, the main page offers a compressed listing of all available cable channels. Clicking any program triggers a pop-up window that offers detailed information about the selected show. Here, for instance, we can read about Dick Shawn groping for laughs as a drunken genie in <em>The Wizard of Baghdad</em>. The point is that JavaScript allows the user to select exactly the level of detail needed (<a href="//web.archive.org/web/200101070948/http://www.tvguide.com" title="Check out what tvguide.com looked like back in 2001.">www.tvguide.com</a>).</p>
+							</figcaption>
+						</figure>
+						<h3>Get Your &lt;HEAD> Together</h3>
+						<p>Before you can create a new window, you must define it in the <abbr title="Hypertext Markup Language">HTML</abbr> <code class="nopad">&lt;HEAD></code> of your <abbr title="Hypertext Markup Language">HTML</abbr> document.</p>
+						<p>Here is a typical way to do just that:</p>
+						<p>
+							<code>
+								&lt;html><br>
+								&lt;head><br>
+								&lt;title>Welcome to Porkchops.com!&lt;/title><br>
+								&lt;script type="text/javascript"> &lt;!--<br>
+								function awindow(url) {<br>
+								return window.open(url, "thewindow", "toolbar=no,width=350,height=400,status=no,scrollbars=yes,resize=no,menubar=no");<br>
+								}<br>
+								// --><br>
+								&lt;/script><br> 
+								&lt;/head><br>
+							</code>
+						</p>
+						<p>What are we doing? We have defined a function, given it a name (<code class="nopad">aWindow</code>), and defined its properties: It will not have a toolbar (<code class="nopad">toolbar=no</code>), it will be 350 pixels wide (<code class="nopad">width=350</code>), it will stay the exact size we’ve specified (<code class="nopad">resize=no</code>), and so on.</p>
+						<p>We have also, without even realizing it, declared a JavaScript variable—that is, an element that can be replaced, as in the <span class="orange">swapem</span> example. Our variable is the <abbr title="Uniform Resource Locator">URL</abbr> of any <abbr title="Hypertext Markup Language">HTML</abbr> document we would like to use in the pop-up window.</p>
+						<p>In the <abbr title="Hypertext Markup Language">HTML</abbr> page, we would trigger the function like so:</p>
+						<p><code>&lt;a href="sucky_old_browser.html" onClick="aWindow(‘porkpops.html’); return false;"></code></p>
+						<p>When the event is triggered by the user’s action (clicking the link), the named <code class="nopad">window.open</code> function will be performed, and the appropriate <abbr title="Hypertext Markup Language">HTML</abbr> page will appear in a 350 x 400 pop-up window with no status bar or menu bar. The <code class="nopad">return false</code> will prevent the browser from following the <abbr title="Uniform Resource Locator">URL</abbr> specified in the <code class="nopad">&lt;HREF></code>, for backward compatibility.</p>
+						<p>As a courtesy, it’s nice to include a <code class="nopad">&lt;CLOSE WINDOW></code> function in the popup window itself, for the beginners in our viewing public. Porkpops.html should include a link like this:</p>
+						<p><code>&lt;a href="#" onclick="window.close(); return false;">Close me!&lt;/a></code></p>
+						<p>Onclick is another of those essential built-in JavaScript event handlers you’ll come to know and love, and <code class="nopad">window.close</code> is a built-in JavaScript function that, as you might have guessed, closes windows. In other words, we are telling the browser to close the window—pretty basic stuff.</p>
+						<p>Can we use graphics instead of <abbr title="Hypertext Markup Language">HTML</abbr> text to perform these functions? Oh, yeah! In the original <abbr title="Hypertext Markup Language">HTML</abbr> document, we can use a fancy-pants <abbr title="Graphics Interchange Format">GIF</abbr> image we’ll call <span class="orange">openwindow.gif</span>:</p>
+						<p><code>&lt;a href="sucky_old_browser.html" onClick="aWindow(‘porkpops.html’); return false;">&lt;img alt="Open new window." src="openwindow.gif" height="100" width="100">&lt;/a></code></p>
+						<p>And in the pop-up window we can use the dapper and elegant <span class="orange">closeme.gif</span>:</p>
+						<p><code>&lt;a href="#" onclick="window.close(); return false">)">&lt;img alt="Close this window." src="closeme.gif" height="25" width="50"></code></p>
+						<p>And that’s all there is to it.</p>
+						<h2>Avoiding the Heartbreak of Linkitis</h2>
+						<p><span class="orange">Problem:</span> The client insists on a menu with dozens of choices. You know such a menu will be ugly and confusing and will cause visitors to scroll indefinitely (or more likely, leave). Your client "knows better." What’s a mother to do?</p>
+						<p><span class="orange">Solution:</span> The JavaScript pull-down menu.</p>
+						<p>Slip this in your <code class="nopad">&lt;HEAD></code> and smoke it:</p>
+						<p>
+							<code>
+								&lt;script type="text/javascript"><br>
+								&lt;!--<br>
+								function load_page(which_form)<br>
+								{ self.location.href=which_form.modules.options[which_form.modules.selectedIndex].value;} //--><br>
+								&lt;/script><br>
+							</code>
+						</p>
+						<p>This sets up a <code class="nopad">load_page</code> function with a replaceable variable (<code class="nopad">which_form</code>) and uses the <code class="nopad">location</code> object to swap links in and out.</p>
+						<p>Now, in the <code class="nopad">&lt;BODY></code> of your <abbr title="Hypertext Markup Language">HTML</abbr> document, create a standard <abbr title="Hypertext Markup Language">HTML</abbr> pull-down form element and use the <code class="nopad">onChange</code> event handler to trigger new pages in response to user actions:</p>
+						<p>
+							<code>
+								&lt;form name="hc"><br>
+									<span class="extraleft">&lt;select name="modules" onChange="load_page(this.form)" size="1"></span><br>
+										<span class="doubleextraleft">&lt;option value="">Pick a Project!</span><br> 
+										<span class="doubleextraleft">&lt;option value="a.html">A List</span><br>
+										<span class="doubleextraleft">&lt;option value="b.html">B List</span><br> 
+										<span class="doubleextraleft">&lt;option value="c.html">C List</span><br> 
+										<span class="doubleextraleft">&lt;option value="d.html">D List</span><br> 
+										<span class="doubleextraleft">&lt;option value="e.html">E List</span><br> 
+										<span class="doubleextraleft">&lt;option value="f.html">F List</span><br> 
+										<span class="doubleextraleft">&lt;option value="g.html">G List</span><br> 
+										<span class="doubleextraleft">&lt;option value="h.html">H List</span><br> 
+										<span class="doubleextraleft">&lt;option value="i.html">I List</span><br> 
+										<span class="doubleextraleft">&lt;option value="j.html">J List</span><br> 
+										<span class="doubleextraleft">&lt;option value="k.html">K Lis</span>t<br> 
+										<span class="doubleextraleft">&lt;option value="l.html">L List</span><br> 
+										<span class="doubleextraleft">&lt;option value="m.html">M List</span><br> 
+										<span class="doubleextraleft">&lt;option value="n.html">N List</span><br> 
+										<span class="doubleextraleft">&lt;option value="o.html">O List</span><br> 
+										<span class="doubleextraleft">&lt;option value="p.html">P List</span><br> 
+										<span class="doubleextraleft">&lt;option value="q.html">Q List</span><br> 
+										<span class="doubleextraleft">&lt;option value="r.html">R List</span><br> 
+										<span class="doubleextraleft">&lt;option value="s.html">S List</span><br> 
+										<span class="doubleextraleft">&lt;option value="t.html">T List</span><br>
+									<span class="extraleft">&lt;/select></span><br> 
+								&lt;/form>
+							</code>
+						</p>
+						<p>This script will automatically change pages as soon as the user highlights any item in the list. If you prefer, you can use a button or other mechanism to actually initiate the action. You can also easily add inline <abbr title="Cascading Style Sheets">CSS</abbr> to add some style to the whole sorry affair:</p>
+						<p><code>&lt;select name="modules" onChange="load_page(this.form)" size="1" style="font-size: 10px; font-family: verdana, geneva, arial; background-color: #336; color: #ccc"></code></p>
+						<p>The resulting mega-menu will look nice and take up very little space on the page (see Figure 11.5). Compared with an endless list of standard <abbr title="Hypertext Markup Language">HTML</abbr> links, the advantages of JavaScript-based navigation become obvious. To compensate for non-JavaScript-capable browsers, you should include a standard <abbr title="Hypertext Markup Language">HTML</abbr> menu somewhere on the page, but it need not be a mess if you consolidate these <abbr title="Hypertext Markup Language">HTML</abbr> links using subpages:</p>
+						<p>
+							<code>
+								&lt;a href="subpage_a-g.html">A-G&lt;/a><br> 
+								&lt;a href="subpage_h-n.html">L-N&lt;/a><br>
+								etc.
+							</code>
+						</p>
+						<figure>
+							<img src="img/11.5.png" alt="Figure 11.5">
+							<figcaption>
+								<h6>Figure 11.5</h6>
+								<p>Add JavaScript to a standard <abbr title="Hypertext Markup Language">HTML</abbr> <code class="nopad">&lt;FORM></code> element, throw in a dash of <abbr title="Cascading Style Sheets">CSS</abbr> for style, and you have a tasty alternative to the traditional navigation menu. Instead of the mess of links the client may have demanded, you have a clean, intuitive interface requiring very little space on the page (<a href="//web.archive.org/web/20010517020152/http://www.happycog.com" title="Check out what happycog.com looked like back in 2001.">www.happycog.com</a>).</p>
+							</figcaption>
+						</figure>
+						<h2>Browser Compensation</h2>
+						<p><span class="orange">Problem:</span> You want to use particular technology—say, <abbr title="Cascading Style Sheets">CSS</abbr>—without causing old browsers to fail.</p>
+						<p><span class="orange">Solution:</span> Browser detection and redirection.</p>
+						<p>As we’ve probably boasted 100 times already throughout this book, we publish a weekly online magazine for web designers that the gods call <em>A List Apart</em> (<a href="//web.archive.org/web/200101182141/http://www.alistapart.com" title="Check out what alistapart.com looked like back in 2001.">http://www.alistapart.com/</a>). For our 19 January 2001 edition, we decided to create a special issue dedicated to employment problems being experienced in the web design field at that time, due to the collapse of many pre-<abbr title="Initial Public Offering">IPO</abbr> dot-com businesses in the last quarter of 2000.</p>
+						<p>In addition to running two articles on the subject, we were also introducing a new site feature: namely, message boards. We figured that the chance to commiserate over business troubles would be a natural inducement to use this new community forum.</p>
+						<p>Ordinarily, <abbr title="A List Apart">ALA</abbr>’s navigational architecture employs a flattened hierarchy: You hit the front page and are immediately presented with that week’s content. But to highlight the special issue—to really alert our readers to the fact that this issue was different—we decided to break with our own convention and launch the issue with a splash page (see Figure 11.6).</p>
+						<figure>
+							<img src="img/11.6.png" alt="Figure 11.6">
+							<figcaption>
+								<h6>Figure 11.6</h6>
+								<p>This is a splash page for a special issue of <em>A List Apart</em>. Using <abbr title="Cascading Style Sheets">CSS</abbr> rather than traditional <abbr title="Hypertext Markup Language">HTML</abbr> tables and image slices simplified the design and production, reduced the bandwidth required, and ensured that the photo’s color would remain consistent. But this page did not work in old, buggy browsers. JavaScript browser detection saved the day (<a href="//web.archive.org/web/20010216055112/http://www.alistapart.com/stories/decline" title="Check out what alistapart.com/stories/decline looked like back in 2001.">http://www.alistapart.com<wbr>/stories/decline/</a>).</p>
+							</figcaption>
+						</figure>
+						<p>We also decided to use <abbr title="Cascading Style Sheets">CSS</abbr> to lay out the page, instead of relying on the techniques described in <a href="10.html" title="Check out chapter 10">Chapter 10</a>. We did this for several reasons. For one thing, it’s leaner. Instead of an <abbr title="Hypertext Markup Language">HTML</abbr> table filled with dozens of image slices, it’s three simple images, one tiny rollover image, and a few lines of standards-friendly code:</p>
+						<p>
+							<code>
+								&lt;style type="text/css"><br>
+								&lt;!--<br>
+								BODY {margin: 0; background-color: #930; background-image: url(/stories/decline/alatop.gif); background-repeat: no-repeat; background-attachment: scroll; background-position: top left;}<br>
+								A:link, A:visited, A:active {text-decoration: none; font-weight: bold; color: #f90;}<br> 
+								A:hover {color: #cf0; text-decoration: underline;}<br>
+								#grief {position: absolute; left: 115px; top: 50px; background-image: url(/stories/decline/decline.jpg); background-repeat: no-repeat; background-attachment: scroll; background-position: top left; border: 2px solid black; height: 400px; width: 550px;}<br>
+								.special {position: relative; left: 425px; top: 365px;}<br>
+								--><br>
+								&lt;/style>
+							</code>
+						</p>
+						<p>For another thing, if we had followed the time-honored method of cutting the comp apart in ImageReady, the colors in the photograph might not have matched from one slice to another. And the bandwidth requirements would have been substantially higher.</p>
+						<p><abbr title="Cascading Style Sheets">CSS</abbr> enabled us to create a page that looked and worked better than traditional methods allow—but there was one problem. As you’ll remember from <a href="10.html" title="Check out chapter 10">Chapter 10</a>, Netscape Communicator 4 has fairly shoddy <abbr title="Cascading Style Sheets">CSS</abbr> support. It does not display <abbr title="Cascading Style Sheets">CSS</abbr> properly and can even crash when encountering <abbr title="Cascading Style Sheets">CSS</abbr> layouts.</p>
+						<p>Our referrer logs told us that 10% of our audience was using Netscape 4. How could we offer our splash page to 90% of the audience without offering ugliness (and possible browser instability) to the other 10%?</p>
+						<h3>JavaScript to the Rescue!</h3>
+						<p>We solved our problem by writing a simple browser detection script and embedding it in the <code class="nopad">&lt;HEAD></code> of our <abbr title="Hypertext Markup Language">HTML</abbr> page:</p>
+						<p>
+							<code>
+								&lt;!-- This is for bugs in Netscape 4 --><br> 
+								&lt;script type="text/javascript"><br>
+								&lt;!--<br>
+								bName=navigator.appName;<br> 
+								bVer=parseInt(navigator.appVersion);<br>
+								if (bName == "Netscape" && bVer >= 5) br = "n5";<br>
+								else if (bName == "Netscape" && bVer >= 4) br = "n4";<br>
+								else if (bName == "Netscape" && bVer==3) br = "n3";<br>
+								else if (bName == "Netscape" && bVer==2) br = "n2";<br>
+								else if (bName == "Microsoft Internet Explorer" && bVer >= 5) br = "e5";<br>
+								else if (bName == "Microsoft Internet Explorer" && bVer >= 4) br = "e4";<br>
+								else if (bName == "Microsoft Internet Explorer") br = "e3";<br>
+								else br = "n2";<br> 
+								//--><br> 
+								&lt;/script>
+							</code>
+						</p>
+						<p>This script defined Netscape 4 to keep an eye out for it. (We didn’t worry about the earlier browsers because no one uses them to visit <abbr title="A List Apart">ALA</abbr>.) When a Netscape 4 user hit the splash page, he was redirected to an alternate page via a second simple script:</p>
+						<p>
+							<code>
+								&lt;script type="text/javascript"><br>
+								&lt;!--<br>
+								if (br == "n4") {<br> 
+								window.location="/stories/decline/main.html"<br> 
+								}<br>
+								//--><br> 
+								&lt;/script><br>
+							</code>
+						</p>
+						<p>As you can see, this script checked for a condition (browser = Netscape 4). If that condition was met, JavaScript’s built-in <code class="nopad">window.location</code> object directed Netscape 4 users to main.html, the issue’s table of contents page. The rest of the audience got to main.html by clicking the link on the splash page. Netscape 4 users missed the splash page but they didn’t miss a drop of content, and they didn’t realize they were missing <em>anything</em>. In this way their needs were accommodated without disturbing them or any other visitor to the site.</p>
+						<p>On a commercial project, we might have gone ahead and built a table-cell version of this page for Netscape 4 users and used browser detection and <code class="nopad">window.location</code> to send them to that page instead.</p>
+						<h4>Location, location, location</h4>
+						<p>There is a drawback to using <code class="nopad">window.location</code>. Because the redirected users don’t realize they’ve been redirected, they bookmark the page to which they’ve been redirected instead of the actual index page. That’s fine for them, but when they send their friends the <abbr title="Uniform Resource Locator">URL</abbr> or link to the site from a site of their own, they will be sending other users to an inner page instead of the cover.</p>
+						<p>There is a way around that—it involves frames—but it’s a tired, messy hack, and we don’t recommend it. If you insist on seeing how it works, visit Happy Cog (<a href="//web.archive.org/web/20010517020152/http://www.happycog.com" title="Check out what happycog.com looked like back in 2001.">http://www.happycog.com/</a>), where we combine browser detection and redirects with frames. Hopefully, by the time you read this, we will have redesigned Happy Cog, and you won’t be able to see what we’re talking about anyway. Never mind.</p>
+						<p>Browser detection is not always as simple as what we’ve just shown. Given that browsers can function differently on different platforms—and because incremental upgrades can also function differently (the 4.5 version might choke on code the 4.6 version handles with ease)—browser detection can get very specific and painfully complex. By a strange coincidence, we have more to say about that very thing.</p>
+						<h2>Watching the Detection</h2>
+						<p><span class="orange">Problem:</span> Your site absolutely requires that the user have a plug-in installed on her system (see <a href="12.html" title="Check out chapter 12.">Chapter 12</a> for more about plug-ins). Simply enough, use JavaScript plug-in detection (<a href="//web.archive.org/web/200101260516/http://www.javascriptworld.com/scripts/script02.08.html" title="Check out what javascriptworld.com/scripts/script02.08.html looked like back in 2001.">http://www.javascriptworld.com/scripts/script02.08.html</a>). But some browsers do not understand JavaScript plug-in detection, even though they perform many other JavaScript functions perfectly. What on earth can you do about that?</p>
+						<p><span class="orange">Solution:</span> Load o’ code—JavaScript browser and platform detection code, that is.</p>
+						<p>Did someone say "complex browser and platform detection?" Oh, joy. An example of that very thing follows. Specifically, it is one of Juxt Interactive’s (see Figure 11.7) browser detection scripts of late 2000, written, in part, to compensate for the fact that Juxt uses the Flash plug-in extensively, and <abbr title="Internet Explorer">IE</abbr>4.5/Mac (and earlier) did not recognize JavaScript’s plug-in detection method—though the browser was otherwise JavaScript-capable.</p>
+						<figure>
+							<img src="img/11.7.png" alt="Figure 11.7">
+							<figcaption>
+								<h6>Figure 11.7</h6>
+								<p>The gifted designers and programmers at Juxt Interactive rely heavily on the Macromedia Flash plug-in. Juxt must be certain its visitors have the plug-in installed before throwing heaps of Flash content their way. JavaScript plug-in detection is the answer, but plug-in detection fails in some browsers. Juxt’s developers tackled this problem by writing the mother of all plug-in, browser, and platform detection scripts (<a href="//web.archive.org/web/200101182141/http://www.juxtinteractive.com" title="Check out what juxtinteractive.com looked like back in 2001.">www.juxtinteractive.com</a>).</p>
+							</figcaption>
+						</figure>
+						<p>If this entire chapter so far has you seriously contemplating a career as an oil painter, we suggest you skip the next few pages, at least for now. However, we should point out that what you are about to see is not so much <em>complex</em> as <em>complete</em>.</p>
+						<p>At first glance, the river of code you’re about to drown in looks like one advanced function after another. In truth it is just a few functions, repeated over and over again so that every browser version, on every possible platform, can be recognized and accounted for.</p>
+						<p>The first code torrent that follows lives in a global JavaScript file called <span class="orange">sniffer.js</span>. We’ll discuss global JavaScript files in a later section, "Going Global with JavaScript," (just as soon as we get through <em>this</em> section).</p>
+						<p>The second river of ‘Script lives in an <abbr title="Hypertext Markup Language">HTML</abbr> page called <span class="orange">testSniffer.htm</span>. Let’s examine them both, shall we?</p>
+						<p>Please don’t freak. Here’s <span class="orange">sniffer.js</span> in all its glory:</p>
+						<p>
+							<code>
+								//////////////////////////////////////////////////////<br>
+								// source: juxtinteractive.com<br>
+								// description: Flash 3, 4 AND 5 Detection<br>
+								// Author: anthony@juxtinteractive.com<br>
+								// credits: netscape communications (client sniff)<br> 
+								// Permission granted to reuse and distribute<br>
+								// Last Modified: 10-03-00<br> 
+								//////////////////////////////////////////////////////
+							</code>
+						</p>
+						<p>
+							<code>
+								/////////////////////////////////////////<br>
+								// Convert userAgent string to Lowercase<br> 
+								/////////////////////////////////////////
+							</code>
+						</p>
+						<p><code>var agt=navigator.userAgent.toLowerCase();</code></p>
+						<p>
+							<code>
+								///////////////////<br>
+								// Browser Version<br> 
+								///////////////////
+							</code>
+						</p>
+						<p>
+							<code>
+								var is_major = parseInt(navigator.appVersion);<br> 
+								var is_minor = parseFloat(navigator.appVersion);<br> 
+								var is_ns = ((agt.indexOf(‘mozilla’)!=-1) && (agt.indexOf(‘spoofer’)==-1) && (agt.indexOf(‘compatible’) == -1) && (agt.indexOf(‘opera’)==-1) && (agt.indexOf(‘webtv’)==-1));<br> 
+								var is_ie = (agt.indexOf("msie") != -1);<br> 
+								////////////<br> 
+								// Platform<br> 
+								////////////
+							</code>
+						</p>
+						<p>
+							<code>
+								var is_win = ( (agt.indexOf("win")!=-1) || (agt.indexOf("16bit")!=-1) );<br>
+								var is_win95 = ((agt.indexOf("win95")!=-1) || (agt.indexOf("windows 95")!=-1));<br>
+								var is_win16 = ((agt.indexOf("win16")!=-1) || (agt.indexOf("16bit")!=-1) || (agt.indexOf("windows 3.1")!=-1) || (agt.indexOf("windows 16-bit")!=-1) );<br>
+								var is_win31 = ((agt.indexOf("windows 3.1")!=-1) || (agt.indexOf("win16")!=-1) || (agt.indexOf("windows 16-bit")!=-1));<br>
+								var is_win98 = ((agt.indexOf("win98")!=-1) || (agt.indexOf("windows 98")!=-1));<br>
+								var is_winnt = ((agt.indexOf("winnt")!=-1) || (agt.indexOf("windows nt")!=-1));<br>
+								var is_win32 = (is_win95 || is_winnt || is_win98 || ((is_major >= 4) && (navigator.plat- form == "Win32")) || (agt.indexOf("win32")!=-1) || (agt.indexOf("32bit")!=-1));<br>
+								var is_mac= (agt.indexOf("mac")!=-1);
+							</code>
+						</p>
+						<p>
+							<code>
+								/////////////////////////////////////<br>
+								// Detect IE 4.5 on the mac<br>
+								// Mucho Problemos with this browser<br>
+								/////////////////////////////////////
+							</code>
+						</p>
+						<p><code>var is_ie45mac = (is_mac && is_ie && (agt.indexOf("msie 5.0")==-1) && (agt.indexOf("msie 5.5")==-1) && (agt.indexOf("msie 4.5")!=-1));</code></p>
+						<p>
+							<code>
+								//////////////////////////////////////////<br>
+								// Flash 3, 4 AND 5 Detection<br>
+								// Last Modified: 10-03-00<br>
+								// NOT checking for enabledPlugin (buggy)<br> 
+								//////////////////////////////////////////
+							</code>
+						</p>
+						<p>
+							<code>
+								var is_flash5 = 0;<br>
+								var is_flash4 = 0;<br>
+								var is_flash3 = 0;<br>
+								if (navigator.plugins["Shockwave Flash"]) {<br>
+								<span class="extraleft">var plugin_version = 0;</span><br>
+								<span class="extraleft">var plugin_description = navigator.plugins["Shockwave Flash"].description.split(" ");</span><br> 
+								<span class="extraleft">for (var i = 0; i &lt; plugin_description.length; ++i) { if (isNaN(parseInt(plugin_description[i])))</span><br>
+								<span class="extraleft">continue;</span><br>
+								<span class="extraleft">plugin_version = plugin_description[i];</span><br>
+								<span class="doubleextraleft">}</span><br>
+								<span class="doubleextraleft">}</span><br>
+								<span class="doubleextraleft">if (plugin_version >= 5) { is_flash5 = 1;</span><br>
+								<span class="doubleextraleft">}</span><br>
+								<span class="doubleextraleft">if (plugin_version >= 4) { is_flash4 = 1;</span><br>
+								<span class="doubleextraleft">}</span><br>
+								<span class="doubleextraleft">if (plugin_version >= 3) { is_flash3 = 1;</span><br>
+								<span class="doubleextraleft">}</span>
+							</code>
+						</p>
+						<p>
+							<code>
+								if (is_ie && is_win32) { // Check IE on windows for flash 3, 4 AND 5 using VB Script<br> 
+								<span class="extraleft">document.write(‘&lt;SCRIPT LANGUAGE="VBScript"\>\n’);</span><br>
+								<span class="extraleft">document.write(‘on error resume next\n’);</span><br>
+								<span class="extraleft">document.write(‘is_flash5 = (IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash.5")))\n’);</span><br>
+								<span class="extraleft">document.write(‘on error resume next\n’);</span><br>
+								<span class="extraleft">document.write(‘is_flash4 = (IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash.4")))\n’);</span><br>
+								<span class="extraleft">document.write(‘on error resume next\n’);</span><br>
+								<span class="extraleft">document.write(‘is_flash3 = (IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash.3")))\n’);</span><br> 
+								<span class="extraleft">document.write(‘&lt;’+’/SCRIPT> \n’);</span><br>
+								}
+							</code>
+						</p>
+						<p>And now the browser and plug-in detector, as used in the <abbr title="Hypertext Markup Language">HTML</abbr> document: <span class="orange">testSniffer.htm</span>:</p>
+						<p>
+							<code>
+								&lt;html><br> 
+								&lt;head><br> 
+								&lt;title>testSniffer - juxtinteractive.com&lt;/title><br> 
+								&lt;meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"><br>  
+								&lt;SCRIPT TYPE="text/javascript" SRC="sniffer.js">&lt;/SCRIPT><br> 
+								&lt;/head><br> 
+								&lt;BODY BGCOLOR="#000000" TOPMARGIN="0" LEFTMARGIN="10" MARGINWIDTH="10" MARGINHEIGHT="0" LINK="#CCCC33" VLINK="#CCCC33" ALINK="#FFFFFF" TEXT="#999900"><br> 
+								&lt;br><br> 
+								&lt;font FACE="Verdana" size="2"><br> 
+								//////////////////////////////////////////////////////&lt;br><br> 
+								// source: juxtinteractive.com&lt;br><br> 
+								// description: Flash 3, 4 AND 5 Detection&lt;br><br> 
+								// Author: anthony@juxtinteractive.com&lt;br><br> 
+								// credits: netscape communications (client sniff)&lt;br><br> 
+								// Permission granted to reuse and distribute&lt;br><br> 
+								// Last Modified: 10-03-00&lt;br><br> 
+								//////////////////////////////////////////////////////&lt;br><br> 
+								&lt;br><br> 
+								&lt;br><br> 
+								&lt;b>Function examples&lt;/b><br> 
+								&lt;br><br> 
+								(the page uses the external JS file "sniffer.js")<br>  
+								&lt;br><br> 
+								&lt;br><br> 
+								&lt;br><br> 
+								&lt;script><br> 
+								&lt;!--
+							</code>
+						</p>
+						<p>
+							<code>
+								if (is_ie45mac) {<br>
+								<span class="extraleft">document.write(‘It seems you are using IE 4.5 on the mac — a extremely buggy browser, you should consider upgrading to IE5 ASAP!\n’);</span><br>
+								}
+							</code>
+						</p>
+						<p>
+							<code>
+								// Check Flash<br>
+								if (is_flash5)<br>
+								{ document.write(‘This browser can play FLASH 5 movies&lt;br>\n’);<br>
+								} if (is_flash4) { document.write(‘This browser can play FLASH 4 movies&lt;br>\n’);} if (is_flash3) { document.write(‘This browser can play FLASH 3 movies&lt;br>\n’);} else {<br>
+								document.write(‘This browser CANNOT play FLASH movies&lt;br>\n’);}<br> 
+								//--><br>
+								&lt;/script><br> 
+								&lt;br><br>
+								&lt;br><br> 
+								&lt;/font><br> 
+								&lt;/body><br> 
+								&lt;/html>
+							</code>
+						</p>
+						<p>Scared you, didn’t it? Scares us, too.</p>
+						<p>Don’t be alarmed. This is the province of web developers, not web designers. You would not be called upon to create JavaScript this detailed yourself. (Besides, if you ever are, you can use Juxt’s script. Note the comment: "Permission granted to reuse and distribute," an act of grace and kindness that is typical of the way web designers share information with their peers.)</p>
+						<p>There are things we dislike about these torrents of code besides the fact that they are torrents of code. Mainly we’re unhappy with the nonstandard, old-style "extended" <abbr title="Hypertext Markup Language">HTML</abbr> markup. This page would not validate. As <abbr title="Hypertext Markup Language">HTML</abbr>, it is not the best role model. As JavaScript, it will do ‘til the next browser upgrade comes along.</p>
+						<p>Recognize that developers bash their brains out writing code like this because browsers behave so inconsistently from version to version and platform to platform. Be glad you’re going into web design and not web development. Be kind to your programmers.</p>
+						<p>On the off-chance that you find this stuff enthralling or decide to switch from design to development, you’ll find an abundance of good browser detection information at <a href="//web.archive.org/web/200101080716/http://www.webreference.com/tools/browser/javascript.html" title="Check out what webreference.com/tools/browser/javascript.html looked like back in 2001.">http://webreference.com/tools/browser/javascript.html</a> and <a href="//web.archive.org/web/20010413153044/http://developer.netscape.com/viewsource/krock_v5.html" title="Check out what developer.netscape.com/viewsource/krock_v5.html looked like back in 2001.">http://developer.netscape.com/viewsource/krock_v5.html</a>. Unfortunately, there is always the chance that by the time you read this book, these pages will have moved or disappeared. If so, check the Resources Department at <a href="//web.archive.org/web/200102050037/http://webstandards.org" title="Check out what webstandards.org looked like back in 2001.">http://www.webstandards.org/</a> for the latest on browser detection.</p>
+						<h2>Going Global with JavaScript</h2>
+						<p>Just as with style sheets (<a href="10.html" title="Chapter 10">Chapter 10</a>), it is possible and often desirable to save time, hassles, and bandwidth by creating one or more global JavaScript documents, which can then be used to control whole sections of your site—or even the entire site.</p>
+						<p>For instance, the "My Glamorous Life" section at zeldman.com (<a href="//web.archive.org/web/200101240816/http://www.zeldman.com/glamorous" title="Check out what zeldman.com/glamorous looked like back in 2001.">http://www.zeldman.com/glamorous/</a>) is controlled by a single JavaScript document (<a href="//web.archive.org/web/20010927191545/http://www.zeldman.com/glamorous/glam.js" title="Check out what zeldman.com/glamorous/glam.js looked like back in 2001.">http://www.zeldman.com/glamorous/glam.js</a>).</p>
+						<p>The document, in its entirety, reads as follows:</p>
+						<p>
+							<code>
+								// Menubar preload. Pretty standard stuff.<br> 
+								function newImage(arg) {<br>
+								<span class="extraleft">if (document.images) {</span><br> 
+								<span class="doubleextraleft">rslt = new Image();</span><br> 
+								<span class="doubleextraleft">rslt.src = arg;</span><br> 
+								<span class="doubleextraleft">return rslt;</span><br>
+								<span class="extraleft">}</span><br> 
+								}<br>
+								function changeImages() {<br>
+								<span class="extraleft">if (document.images && (preloadFlag == true)) {</span><br>
+								<span class="doubleextraleft">for (var i=0; i&lt;changeImages.arguments.length; i+=2) {</span><br> 
+								<span class="tripleextraleft">document[changeImages.arguments[i]].src = changeImages.arguments[i+1];</span><br>
+								<span class="doubleextraleft">}</span><br>
+								<span class="extraleft">}</span><br> 
+								}<br>
+								var preloadFlag = false;<br> 
+								function preloadImages() {<br>
+								<span class="extraleft">if (document.images) {</span><br>
+								<span class="doubleextraleft">tocover = newImage("../omen2/coreover.gif");</span><br> 
+								<span class="doubleextraleft">funover = newImage("../omen2/funover.gif");</span><br> 
+								<span class="doubleextraleft">alaover = newImage("../omen2/alaover.gif");</span><br> 
+								<span class="doubleextraleft">15over = newImage("../omen2/15over.gif");</span><br> 
+								<span class="doubleextraleft">stealover = newImage("../omen2/stealover.gif");</span><br> 
+								<span class="doubleextraleft">webover = newImage("../omen2/webover.gif");</span><br> 
+								<span class="doubleextraleft">miscover = newImage("../omen2/miscover.gif");</span><br> 
+								<span class="doubleextraleft">comingover = newImage("../glareon.gif");</span><br> 
+								<span class="doubleextraleft">preloadFlag = true;</span><br>
+								<span class="extraleft">}</span><br> 
+								}<br>
+								// Get out of some idiot’s frame.<br>
+								<span class="extraleft">if (top != self) { top.location = self.location; }<br>
+								// Popup window, 640 x 480<br>
+								function open_window6(url) {<br>
+								mywin = window.open(url,"win",’toolbar=0,location=0,directories=0,status=0,menubar=0, scrollbars=0,resizable=0,width=640,height=480’);<br>
+								}<br>
+								// Popup window, 500 x 500<br>
+								function open_window(url) {<br>
+								mywin = window.open(url,"win",’toolbar=0,location=0,directories=0,status=0,menubar=0, scrollbars=0,resizable=0,width=500,height=500’);<br>
+								}
+							</code>
+						</p>
+						<p>Pretty "light" after all that stuff from Juxt Interactive, eh? By now it should be obvious what this stuff means, but we’ll spell it out anyway because we really, truly love you.</p>
+						<p>The double slashes <code class="nopad">//</code> precede comments. The comments help the author remember what each function is for. The double slashes tell the browser to ignore these comments and proceed to the next function.</p>
+						<p>The menu bar preload and subsequent <code class="nopad">changeImages</code> function are just another way of preloading images and creating image rollovers. The images in this case are referenced via relative <abbr title="Uniform Resource Locators">URLs</abbr> (<span class="orange">../glareon.gif</span>), as explained in <a href="8.html" title="Check out chapter 8.">Chapter 8</a>. It would have been smarter to use absolute <abbr title="Uniform Resource Locators">URLs</abbr>, but we never claimed to be all that bright.</p>
+						<p><span class="orange">Get out of some idiot’s</span> frame is a simple <em>framebuster</em> script, consisting of just one line.</p>
+						<p><code>if (top != self) { top.location = self.location; }</code></p>
+						<p>A third-party site might link to yours. Sometimes that third-party site uses frames. Sometimes those frames are poorly constructed. Your site might load inside their frames instead of in its own window. This line of JavaScript prevents that from happening. In English, what it is saying is, "The <abbr title="Hypertext Markup Language">HTML</abbr> document referenced by this script should fill the browser window. If it does, swell. If it doesn’t, get rid of any extraneous frames and fill the browser window with our page, not some other jerk’s." Of course JavaScript syntax is a bit more formal than that.</p>
+						<p>The subsequent two functions are pop-up windows of varying dimensions. They are identical except for their dimensions and their names. (The 640 x 480 window is named <code class="nopad">window6</code>; the other is simply named <code class="nopad">window</code>.) The parenthetical <abbr title="Uniform Resource Locator">URL</abbr> (<code class="nopad">url</code>) is a variable. If a pop-up window is needed on any <abbr title="Hypertext Markup Language">HTML</abbr> page that refers to this global JavaScript document, the address of the pop-up window will be inserted between the parentheses <code class="nopad">(popupwindow.html)</code>.</p>
+						<p>How do the <abbr title="Hypertext Markup Language">HTML</abbr> pages make use of this global JavaScript document? Just as with global style sheets, they do it by referring to the <span class="orange">.js</span> file with a link:</p>
+						<p><code>&lt;script ""type="text/javascript" src="glam.js">&lt;/script></code></p>
+						<p>The link appears inside the <code class="nopad">&lt;HEAD></code> of each <abbr title="Hypertext Markup Language">HTML</abbr> document that requires these scripts.</p>
+						<p>
+							<code>
+								&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd"><br> 
+								&lt;html><br>
+								&lt;head><br>
+								&lt;link rel="StyleSheet" href="glam.css" type="text/css" media="screen"><br> 
+								&lt;script type="text/javascript" src="glam.js">&lt;/script><br>
+								&lt;title>Jeffrey Zeldman Presents: My Glamorous Life&lt;/title><br>
+								&lt;/head><br>
+								&lt;body onLoad="preloadImages(); window.defaultStatus=’Jeffrey Zeldman Presents. Entertainment, free graphics, and web design tips since 1995.’">
+							</code>
+						</p>
+						<p>Notice that the <code class="nopad">&lt;BODY></code> tag includes these two <code class="nopad">onLoad</code> functions: <code class="nopad">preloadImages</code> and <code class="nopad">window.defaultStatus</code>. The first preloads the images as referenced in <span class="orange">glam.js</span>. The second is our old friend, the default status bar message—the first snippet of JavaScript we learned in this chapter. The two are combined in one <code class="nopad">onLoad</code> declaration and separated by a semicolon. Simple.</p>
+						<h2>Learning More</h2>
+						<p>There is so much that JavaScript can do. This chapter barely hints at the possibilities, and some methods used in this chapter could be out of date by the time you read this book.</p>
+						<p>With the arrival of full support for <abbr title="European Computer Manufacturers Association">ECMA</abbr>Script and the <abbr title="Document Object Model">DOM</abbr>, the dynamic possibilities for websites will expand exponentially. If you find, as some do, that you take naturally to JavaScript and want to learn more about the standardized version of JavaScript (<abbr title="European Computer Manufacturers Association">ECMA</abbr>Script) and the <abbr title="Document Object Model">DOM</abbr>:</p>
+						<ul>
+							<li><span>The <abbr title="World Wide Web Consortium">W3C</abbr> offers the <abbr title="Document Object Model">DOM</abbr> at <a href="//web.archive.org/web/200101232255/http://www.w3.org/DOM" title="Check out what w3.org/DOM looked like back in 2001.">http://www.w3.org/DOM/</a> in all its baffling glory.</span></li>
+							<li><span>WebReference’s "Doc JavaScript" (<a href="//web.archive.org/web/200101241503/http://webreference.com/js" title="Check out what webreference.com/js looked like back in 2001.">http://www.webreference.com/js/</a>) offers many fine articles covering <abbr title="European Computer Manufacturers Association">ECMA</abbr>Script, JavaScript, and the <abbr title="Document Object Model">DOM</abbr>.</span></li>
+							<li><span>Peter-Paul Koch maintains a <abbr title="Document Object Model">DOM</abbr> mailing list (<a href="//web.archive.org/web/200101240602/http://www.xs4all.nl/~ppk/js/list.html" title="Check out what xs4all.nl/~ppk/js/list.html looked like back in 2001.">http://www.xs4all.nl/~ppk/js/list.html</a>).</span></li>
+							<li><span>The Web Standards Project maintains links to the latest <abbr title="European Computer Manufacturers Association">ECMA</abbr>Script and <abbr title="Document Object Model">DOM</abbr> resources, beginning at <a href="//web.archive.org/web/200102021939/http://webstandards.org/resources.html" title="Check out what webstandards.org/resources.html looked like back in 2001.">http://www.webstandards.org/resources.html</a>.</span></li>
+						</ul>
+						<p>And <em>A List Apart</em> (<a href="//web.archive.org/web/200101182141/http://www.alistapart.com" title="Check out what alistapart.com looked like back in 2001.">http://www.alistapart.com/</a>) offers the Eisenberg <abbr title="Document Object Model">DOM</abbr> series, an ongoing tutorial that includes:</p>
+						<ul>
+							<li><span>Meet the <abbr title="Document Object Model">DOM</abbr>: <a href="//web.archive.org/web/20010620220055/http://www.alistapart.com/stories/dom" title="Check out what alistapart.com/stories/dom looked like back in 2001.">http://www.alistapart.com/stories/dom/</a></span></li>
+							<li><span><abbr title="Document Object Model">DOM</abbr> Design Tricks: <a href="//web.archive.org/web/20010424113612/http://www.alistapart.com/stories/dom2" title="Check out what alistapart.com/stories/dom2 looked like back in 2001.">http://www.alistapart.com/stories/dom2/</a></span></li>
+							<li><span><abbr title="Document Object Model">DOM</abbr> Design Tricks 2: <a href="//web.archive.org/web/20010413223700/http://www.alistapart.com/stories/domtricks2" title="Check out what alistapart.com/stories/domtricks2 looked like back in 2001.">http://www.alistapart.com/stories/domtricks2/</a></span></li>
+							<li><span><abbr title="Document Object Model">DOM</abbr> Design Tricks 3: <a href="//web.archive.org/web/200101241023/http://www.alistapart.com/stories/domtricks3" title="Check out what alistapart.com/stories/domtricks3 looked like back in 2001.">http://www.alistapart.com/stories/domtricks3/</a></span></li>
+						</ul>
+						<p>Whether you tackle this advanced stuff now or crawl off to recover from reading this chapter, be proud of yourself. You have faced your fears and at least <em>looked</em> at the part of web design that most designers find confusing and unintuitive. This is mainly because, compared to Photoshop and <code class="nopad">&lt;p></code> paragraph tags, JavaScript <em>is</em> confusing and unintuitive.</p>
+						<p>But with practice and experience, it will get easier. And when browsers do a better job of complying with <abbr title="European Computer Manufacturers Association">ECMA</abbr>Script and the <abbr title="World Wide Web Consortium">W3C</abbr> <abbr title="Document Object Model">DOM</abbr>, it will get easier still. The <em>programming</em> will not be easy, but you or your development team will take comfort in the fact that you only have to code your site one way to work in all browsers.</p>
+						<p>There is just a little more to learn before you can consider yourself a full-fledged (or at least a fledgling) web designer. And by a strange coincidence, what you still don’t know is covered in the very next chapter. Let’s go for it, shall we?</p>
+					</article>
+					<footer role="contentinfo">&larr; <a href="10.html" title="Hope you read chapter 10.">PREVIOUS</a> | <a href="12.html" title="Check out chapter 12 next">NEXT</a> &rarr; | <a href="#" title="Back to the top of this page.">top</a> &uarr;</footer>
+					<link rel="prefetch prerender" href="http://takingyourtalenttotheweb.com/12.html">
+				</div>
+			</div>
+		</div>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
